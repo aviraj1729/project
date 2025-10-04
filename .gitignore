@@ -9,8 +9,6 @@ frontend/node_modules
 scripts/node_modules
 frontend/build
 frontend/dist
-version.sh
-version.json
 frontend/.env
 backend/.env
 backend/src/.env
