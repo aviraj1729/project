@@ -1,0 +1,55 @@
+/* Original and Unchanged Styles */
+.messages-wrapper
+  .message.attach-previous
+    padding-top: 0
+  .message.attach-next
+    padding-bottom: 3px
+  .spacer
+    width: 60px
+    height: 60px
+  .message
+    > .picture
+      margin-bottom: -20px
+    > .spacer
+      margin-bottom: -20px
+  .chat .message .content .bubble.attach-previous.left
+    border-top-left-radius: 0
+  .chat .message .content .bubble.attach-previous.right
+    border-top-right-radius: 0
+  .chat .message .content .bubble.attach-next.left
+    border-bottom-left-radius: 0
+  .chat .message .content .bubble.attach-next.right
+    border-bottom-right-radius: 0
+  .content-download
+    display: flex
+    align-items: center
+  .content-name
+    font-weight: bold
+  .content-size
+    font-size: 12px
+  .content-icon
+    min-width: 27px
+    width: 27px
+    font-size: 18px
+    margin-left: 10px
+
+/* --- Cobalt Blue Theme Modifications --- */
+
+/* Right bubble (outgoing message) */
+.bubble.right
+  background-color: #0047AB /* Cobalt Blue */
+  color: #fff
+
+/* Left bubble (incoming message) */
+.bubble.left
+  background-color: #F1F0F0 /* Light grey for contrast */
+  color: #333
+
+/* Link color for outgoing message */
+.bubble.right a
+  color: #fff !important
+
+/* Link color for incoming message - using cobalt blue for theme consistency */
+.bubble.left a,
+.message.left a
+  color: #0047AB !important
