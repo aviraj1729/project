@@ -1,6 +1,6 @@
 {
-  "name": "clover",
-  "author": "Honeyside",
+  "name": "Avi",
+  "author": "Avi Raj",
   "version": "2.9.1",
   "private": true,
   "type": "module",
@@ -78,6 +78,6 @@
     "eslint-plugin-jsx-a11y": "6.8.0"
   },
   "engines": {
-    "node": "18.x.x"
+    "node": "22.x.x"
   }
 }
