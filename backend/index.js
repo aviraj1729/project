@@ -1,5 +1,5 @@
 require('colors');
-require(configDotenv());
+const { configDotenv } = require('dotenv');
 
 console.log(`${'Honeyside'.yellow} © ${'2022'.yellow}`);
 console.log(`Welcome to ${'Clover'.cyan}`);
