@@ -11,31 +11,31 @@ const store = require('./src/store');
 const init = require('./src/init');
 
 const Config = require('./config');
-// if (Config.ip && Config.mediasoup && Config.mediasoup.webRtcTransport) {
-//   Config.mediasoup.webRtcTransport.listenIps[0].ip = Config.ip;
-// }
-//
-// // Safe Mediasoup import with stub fallback
-// let mediasoup;
-// try {
-//   mediasoup = require('./src/mediasoup');
-//
-//   if (process.env.DISABLE_MEDIASOUP === 'true') {
-//     console.log('Mediasoup disabled (stub mode)'.yellow);
-//     mediasoup = {
-//       init: () => console.log('Mediasoup stub init called'),
-//       createWorker: () => null,
-//       createTransport: () => null,
-//     };
-//   }
-// } catch (err) {
-//   console.log('Mediasoup not available, using stub'.yellow);
-//   mediasoup = {
-//     init: () => console.log('Mediasoup stub init called'),
-//     createWorker: () => null,
-//     createTransport: () => null,
-//   };
-// }
+if (Config.ip && Config.mediasoup && Config.mediasoup.webRtcTransport) {
+  Config.mediasoup.webRtcTransport.listenIps[0].ip = Config.ip;
+}
+
+// Safe Mediasoup import with stub fallback
+let mediasoup;
+try {
+  mediasoup = require('./src/mediasoup');
+
+  if (process.env.DISABLE_MEDIASOUP === 'true') {
+    console.log('Mediasoup disabled (stub mode)'.yellow);
+    mediasoup = {
+      init: () => console.log('Mediasoup stub init called'),
+      createWorker: () => null,
+      createTransport: () => null,
+    };
+  }
+} catch (err) {
+  console.log('Mediasoup not available, using stub'.yellow);
+  mediasoup = {
+    init: () => console.log('Mediasoup stub init called'),
+    createWorker: () => null,
+    createTransport: () => null,
+  };
+}
 
 // Middleware to check DB connection
 app.use((req, res, next) => (store.connected ? next() : res.status(500).send('Database not available.')));
@@ -60,7 +60,7 @@ store.io = new Server(server, {
 });
 
 init();
-// mediasoup.init(); // safe stub or real Mediasoup
+mediasoup.init(); // safe stub or real Mediasoup
 
 // Start server
 const listen = () => server.listen(Config.port, () => console.log(`Server listening on port ${Config.port}`.green));
