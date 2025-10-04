@@ -1,5 +1,5 @@
 {
-  "name": "clover-backend",
+  "name": "project-backend",
   "version": "2.9.1",
   "description": "WebRTC conferencing platform.",
   "main": "index.js",
